@@ -26,8 +26,6 @@ RSpec.describe 'garden show page' do
 
   it 'lists all the plants that are in the garden' do
     visit "/gardens/#{@garden.id}"
-    save_and_open_page
-
     expect(page).to have_content(@garden.name)
     expect(page).to have_content(@plant1.name, count: 1)
     expect(page).to have_content(@plant2.name, count: 1)
