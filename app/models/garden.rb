@@ -9,7 +9,6 @@ class Garden < ApplicationRecord
     #    .select('plants.*')
     #    .where('plants.days_to_harvest < ?', 100)
     #    .distinct
-
     plants.where('days_to_harvest < ?', 100)
           .distinct
   end
