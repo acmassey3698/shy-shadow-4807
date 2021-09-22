@@ -1,0 +1,8 @@
+<h1><%= @garden.name %></h1>
+
+Plants in this garden:
+<ul>
+<% @garden.harvestable_in_hundred.each do |plant| %>
+  <li><%= plant.name %></li>
+<%end%>
+</ul>
