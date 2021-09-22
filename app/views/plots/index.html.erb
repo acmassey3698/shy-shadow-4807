@@ -8,7 +8,7 @@
       Plants in this plot:
       <ul>
         <% plot.plants.each do |plant| %>
-          <li><%= plant.name %><%= link_to "Remove this plant", "/plots/#{plot.id}/plants/#{plant.id}", method: :delete %></li>
+          <li><%= plant.name %><%= link_to "Remove this plant", "/plant_plots/#{plant.find_plant_plot(plot.id).id}", method: :delete %></li>
         <% end  %>
       </ul>
     </div>
