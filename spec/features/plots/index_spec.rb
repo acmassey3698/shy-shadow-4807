@@ -27,6 +27,8 @@ RSpec.describe 'plots index' do
 
   it 'shows all the plots by number and shows that plots plants' do
     within "#plot-#{@plot1.id}" do
+      save_and_open_page
+      
       expect(page).to have_content(@plot1.number)
 
       expect(page).to have_content(@plant1.name)
@@ -51,5 +53,5 @@ RSpec.describe 'plots index' do
 
       expect(page).to have_content(@plant2.name)
     end
-  end 
+  end
 end
