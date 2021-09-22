@@ -27,8 +27,6 @@ RSpec.describe 'plots index' do
 
   it 'shows all the plots by number and shows that plots plants' do
     within "#plot-#{@plot1.id}" do
-      save_and_open_page
-      
       expect(page).to have_content(@plot1.number)
 
       expect(page).to have_content(@plant1.name)
@@ -52,6 +50,23 @@ RSpec.describe 'plots index' do
       expect(page).to have_content(@plot4.number)
 
       expect(page).to have_content(@plant2.name)
+    end
+  end
+
+  it 'has a link beside each plant to remove that plant from the plot' do
+    within "#plot-#{@plot1.id}" do
+      expect(page).to have_link("Remove this plant")
+    end
+
+    within "#plot-#{@plot4.id}" do
+      expect(page).to have_link("Remove this plant")
+    end
+  end
+
+  it 'removes the plant when that link is clicked' do
+    within "#plot-#{@plot4.id}" do
+      click_link("Remove this plant")
+      expect(page).to_not have_content(@plant2.name)
     end
   end
 end
