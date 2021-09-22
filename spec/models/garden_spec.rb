@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Garden do
   describe 'relationships' do
     it { should have_many(:plots) }
+    it { should have_many(:plants).through(:plots)}
   end
 
   before :each do
@@ -31,7 +32,7 @@ RSpec.describe Garden do
   describe 'instance methods' do
     describe '#harvestable_in_hundred' do
       it 'returns a distinct list of plants harvestable in less than 100 days' do
-        
+
         expect(@garden.harvestable_in_hundred).to eq([@plant1, @plant2, @plant3, @plant4])
       end
     end
