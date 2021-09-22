@@ -1,7 +1,6 @@
 class PlantPlotsController < ApplicationController
   def destroy
-    pp = PlantPlot.find_by_ids(params[:plant_id], params[:plot_id])
-    PlantPlot.destroy(pp.ids)
+    PlantPlot.destroy(params[:id])
     redirect_to '/plots'
   end
 end
